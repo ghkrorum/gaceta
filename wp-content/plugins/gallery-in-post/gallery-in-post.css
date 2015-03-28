@@ -1,0 +1,23 @@
+.gallery-in-post-main-cont{
+	
+}
+.gallery-in-post-list{
+	
+	
+}
+.gallery-in-post-img{
+	display: inline;
+	padding: 5px 5px 0 0;
+	cursor: pointer;
+}
+.gallery-in-post-image-cont{
+	border-bottom: 1px solid #999999;
+	display: inline;
+}
+.gallery-in-post-image-cont img{
+	
+}
+.gip_wysiwyg{
+	clear: both;
+	width: 400px;
+}

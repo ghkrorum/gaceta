@@ -69,7 +69,7 @@ Thumbs.db
 *.sql
 *.sqlite
 
-!data/data.sql
+!/data/data.sql
 
 # ignore compiled files
 *.com
