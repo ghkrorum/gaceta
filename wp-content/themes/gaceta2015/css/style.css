@@ -1076,6 +1076,14 @@ a:link{
 .post-slider-caption p{
 	margin-bottom: 10px;
 }
+.post-slider-caption ol{
+	margin-left: 10px;
+	list-style: number;
+}
+.post-slider-caption ul{
+	margin-left: 10px;
+	list-style: initial;
+}	
 .post-slider-description{
 	font-size: 17px;
 	color: #000000;
@@ -1149,7 +1157,10 @@ a:link{
 	padding: 32px 5px;
 	float: left;
 }
-
+.aside-right img{
+	height: auto;
+	max-width: 100%;
+}
 .parrafo-one, .description-txt{
 	float: left;
 	width: 100%;
@@ -1693,12 +1704,17 @@ div.fullGal li img{
 }
 
 div.galSlider #prevSlide{
-	line-height: 80px;
-	background: transparent url(../img/gal_prev.png) no-repeat 0px -6px !important;
+    background: url("../img/gal_prev.png") no-repeat scroll 0 -6px transparent !important;
+    float: left;
+    height: 57px;
+    line-height: 80px;
+    width: 17px;
 }
 div.galSlider #nextSlide{
-	line-height: 80px;
-	background: transparent url(../img/gal_next.png) no-repeat 6px -6px;
+	float: right;
+	height: 57px;
+    width: 17px;
+	background: transparent url('../img/gal_next.png') no-repeat 0 -6px;
 }
 div.galSlider #prevSlide.prevBtnDis{
 	background: none;
@@ -1715,12 +1731,15 @@ div.galSlider{
 	float: left;
 }
 .slideView{
-	width: 100%;
+	width: 94%;
+	min-height: auto;
 	height: 60px;
 	margin: 0;
 	position: relative;
 	text-align: center;
 	overflow: hidden;
+	float: left;
+	 margin: 10px 0;
 }
 .galeria .thumbnail-galery{
     list-style: outside none none;
@@ -1781,6 +1800,7 @@ div.galSlider{
 }
 .fotoImgCont img{
 	width: auto;
+	max-width: 100%;
 }
 .fotoImgPie{
 	float: left;
@@ -2056,6 +2076,23 @@ div.galSlider{
 	}
 	.content-footer .more-btn {
 	    font-size: 12px;
+	}
+	/*GALERIA OLD*/
+	.contGalRight {
+	    float: left;
+	}
+	.slideView {
+	    width: 90%;
+	}
+	.galSlider ul {
+	    margin: 0;
+	    padding: 0;
+		position: static;
+	    top: 0;
+	}
+	/*galeria_old*/
+	.parrafo-one iframe{
+		width: 100%;
 	}
 
 }
@@ -2690,6 +2727,7 @@ div.galSlider{
 	.aside-galery{
 		display: none;
 	}
+	
 }
 @media (max-width: 479px) {
 	.video{
@@ -2953,4 +2991,14 @@ div.galSlider{
 	#menu-main-menu-1{
 		margin-top: 36px;
 	}
+	/*slide_old*/
+	.slideView {
+	    width: 86%;
+	}
+	.contGalRight {
+    	width: 100%;
+	}
+	 .fotoImgCont{
+	 	width: 100%;
+	 }
 }

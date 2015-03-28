@@ -14,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>/css/style.css">
     <!--script type="text/javascript" src="<?php echo THEME_URL;?>/js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="<?php echo THEME_URL;?>/js/jquery-migrate-1.2.1.min.js"></script-->
+       <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>/css/tango/skin.css" />
+      
+   
     <?php
     if ( is_home() || is_category() ){
     ?>
@@ -28,6 +31,42 @@
     ?>
     <script type="text/javascript" src="<?php echo THEME_URL;?>/libraries/slick/slick.min.js"></script>
     <script type="text/javascript" src="<?php echo THEME_URL;?>/js/main.js"></script>
+    <script type="text/javascript" src="<?php echo THEME_URL;?>/js/jquery.jcarousel.min.js"></script>
+     <script type="text/javascript">
+      function mycarousel_initCallback(carousel){
+        jQuery('.nextSlide').bind('click', function(event) {
+          event.preventDefault();
+              carousel.next();
+              return false;
+          });
+
+          jQuery('.prevSlide').bind('click', function(event) {
+          event.preventDefault();
+              carousel.prev();
+              return false;
+          });
+      }
+      function mycarousel_buttonNextCallback(carousel, button, enabled) {
+        if(!enabled)
+        {
+          jQuery('#nextSlide').addClass('nextBtnDis');
+        }
+        else
+          jQuery('#nextSlide').removeClass('nextBtnDis');
+      }
+      function mycarousel_buttonPrevCallback(carousel, button, enabled) {
+        if(!enabled)
+        {
+          jQuery('#prevSlide').addClass('prevBtnDis');
+        }
+        else
+          jQuery('#prevSlide').removeClass('prevBtnDis');
+      }
+      function showGal(idVal){
+        jQuery('#fotoCont ul li').css('display', 'none');
+        jQuery('#fotoCont_'+idVal).css('display', 'block');
+      }
+      </script>
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -24,10 +24,12 @@ $termArray[] = array('term_id' => $categoryId, 'taxonomy' => 'category');
             ?>
             <div class="slide gotham-bold">
               <div class="slide-wrap">
-                <?php 
-                echo $image;
-                $termObj = gaceta2015_get_post_term($post->ID);
-                ?>
+                <a href="<?php the_permalink(); ?>">
+                  <?php 
+                   echo $image;
+                  $termObj = gaceta2015_get_post_term($post->ID);
+                  ?>
+                </a>
                 <div class="slide-txt">
                   <div class="slide-txt-wrap">
                     <?php

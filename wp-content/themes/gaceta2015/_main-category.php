@@ -22,11 +22,13 @@
             ?>
             <div class="slide gotham-bold">
               <div class="slide-wrap">
-                <?php 
-                echo $image;
+                <a href="<?php the_permalink(); ?>">
+                  <?php 
+                  echo $image;
 
-                // $termObj = gaceta2015_get_post_term($post->ID);
-                ?>
+                  // $termObj = gaceta2015_get_post_term($post->ID);
+                  ?>
+                </a>
                 <div class="slide-txt">
                   <div class="slide-txt-wrap">
                     <?php
