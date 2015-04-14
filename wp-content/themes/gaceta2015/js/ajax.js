@@ -97,6 +97,7 @@
 			    	$('#load-more-videos').attr('data-offset', response.offset);
 			    	$('#load-more-videos').attr('data-category', category);
 			    	displayVideoItems();
+			    	setupVideoTrigger();
 			    },
 			    'json'
 			);

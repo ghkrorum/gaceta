@@ -76,6 +76,28 @@ function resizeSliderImages(){
 	}
 }
 
+function setupVideoTrigger(){
+		//videos
+	jQuery('.video-items-loaded .category-posts-item a').click(function(event) {
+		var urlVideo = jQuery(this).attr('href');
+		event.preventDefault();
+		jQuery('.content-video .content-image-video iframe').attr('src',urlVideo);
+		var body = jQuery("html, body");
+		body.animate({scrollTop:0}, '100', 'swing', function() {}); 
+	});
+	jQuery('.video-items-loaded').removeClass('video-items-loaded');
+	jQuery('.video-post .category-posts-item a').click(function(event) {
+		var urlVideo = jQuery(this).attr('href');
+		event.preventDefault();
+		jQuery('.content-video .content-image-video iframe').attr('src',urlVideo);
+	});
+    jQuery('.video-list .video-list-item a').click(function(event){
+    	var urlVideo = jQuery(this).attr('href');
+        event.preventDefault();
+        jQuery('.section-4 .video iframe').attr('src',urlVideo);
+    });
+}
+
 
 (function ($) {
 
@@ -93,9 +115,6 @@ function resizeSliderImages(){
       }
     })
   }}},"endpoints":{"local_recs_url":"http:\/\/gaceta-new.loc\/wp-admin\/admin-ajax.php?action=shareaholic_permalink_related","share_counts_url":"http:\/\/gaceta-new.loc\/wp-admin\/admin-ajax.php?action=shareaholic_share_counts_api"},"user":[]};
-
-
-
   	
 
 	function getUrlParameter(sParam)
@@ -545,25 +564,9 @@ function resizeSliderImages(){
 			    }
 		    });
 		}*/
-		//videos
-		$('.video-items-loaded .category-posts-item a').click(function(event) {
-			var urlVideo = $(this).attr('href');
-			event.preventDefault();
-			$('.content-video .content-image-video iframe').attr('src',urlVideo);
-			var body = $("html, body");
-			body.animate({scrollTop:0}, '100', 'swing', function() {}); 
-		});
-		$('.video-items-loaded').removeClass('video-items-loaded');
-		$('.video-post .category-posts-item a').click(function(event) {
-			var urlVideo = $(this).attr('href');
-			event.preventDefault();
-			$('.content-video .content-image-video iframe').attr('src',urlVideo);
-		});
-	    $('.video-list .video-list-item a').click(function(event){
-	    	var urlVideo = $(this).attr('href');
-	        event.preventDefault();
-	        $('.section-4 .video iframe').attr('src',urlVideo);
-	    });
+
+		setupVideoTrigger();
+		
 	    //Thumbnail galeria
 	    
 	    $('.post-slider-bottom .content-img').click(function() {
