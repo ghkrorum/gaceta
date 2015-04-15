@@ -80,19 +80,25 @@ function setupVideoTrigger(){
 		//videos
 	jQuery('.video-items-loaded .category-posts-item a').click(function(event) {
 		var urlVideo = jQuery(this).attr('href');
+
 		event.preventDefault();
 		jQuery('.content-video .content-image-video iframe').attr('src',urlVideo);
+		jQuery('.sub-title').html(videoTitle);
 		var body = jQuery("html, body");
 		body.animate({scrollTop:0}, '100', 'swing', function() {}); 
 	});
 	jQuery('.video-items-loaded').removeClass('video-items-loaded');
 	jQuery('.video-post .category-posts-item a').click(function(event) {
 		var urlVideo = jQuery(this).attr('href');
+		var title = jQuery(this).attr('data-title');
 		event.preventDefault();
 		jQuery('.content-video .content-image-video iframe').attr('src',urlVideo);
+		jQuery('.sub-title').html(title);
 	});
     jQuery('.video-list .video-list-item a').click(function(event){
     	var urlVideo = jQuery(this).attr('href');
+    	var videoTitle = jQuery(this).attr('data-title');
+		console.log(this);
         event.preventDefault();
         jQuery('.section-4 .video iframe').attr('src',urlVideo);
     });

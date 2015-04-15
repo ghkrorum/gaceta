@@ -113,7 +113,7 @@ if (!empty($idObj)){
         ?>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="category-posts-item">
-              <a href="<?php echo $videoUrl; ?>"><?php echo $img;?></a>
+              <a href="<?php echo $videoUrl; ?>" data-title="<?php echo get_the_title();?>"><?php echo $img;?></a>
               <iframe src="<?php echo $videoUrl;?>" frameborder="0" allowfullscreen></iframe>
               <a href="<?php echo $videoUrl; ?>"><h2 class="category-posts-item-tit gotham-book"><?php the_title(); ?></h2></a>
             </div>

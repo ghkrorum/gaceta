@@ -20,8 +20,10 @@
 	function addVideoTrigger(){
 		$('.video-items-loaded .category-posts-item a').click(function(event) {
 			var urlVideo = $(this).attr('href');
+			var videoTitle = $(this).attr('data-title');
 			event.preventDefault();
 			$('.content-video .content-image-video iframe').attr('src',urlVideo);
+			$('.sub-title').html(videoTitle);
 			var body = $("html, body");
 			body.animate({scrollTop:0}, '100', 'swing', function() {}); 
 		});
