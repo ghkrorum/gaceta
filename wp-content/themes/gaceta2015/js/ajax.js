@@ -3,7 +3,7 @@
 	function displayVideoItems(){
 		var images = $('.video-items-loaded img');
     	var imagesLoaded = 0;
-    	$('.video-items-loaded').removeClass('video-items-loaded');
+    	
     	$(images).each( function(index){
     		$(this).bind('load', function(){
 				imagesLoaded++;
@@ -76,6 +76,7 @@
 			    	$(This).attr('data-offset', response.offset);
 			    	addVideoTrigger();
 			    	displayVideoItems();
+			    	$('.video-items-loaded').removeClass('video-items-loaded');
 			    },
 			    'json'
 			);

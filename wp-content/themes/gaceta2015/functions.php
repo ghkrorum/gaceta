@@ -232,11 +232,12 @@ function gaceta2015_ajax_load_more_videos(){
 
 	$totaPosts = count($posts);
 	
-	$offset = $offset + $totaPosts;
+	
 	
 	ob_start();
     include '_more-videos.php';
     $html =  ob_get_clean();
+    $offset = $offset + $totaPosts;
     echo json_encode(array(
     	'content' => $html,
     	'offset' => $offset,

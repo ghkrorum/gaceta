@@ -80,7 +80,7 @@ function setupVideoTrigger(){
 		//videos
 	jQuery('.video-items-loaded .category-posts-item a').click(function(event) {
 		var urlVideo = jQuery(this).attr('href');
-
+		var videoTitle = jQuery(this).attr('data-title');
 		event.preventDefault();
 		jQuery('.content-video .content-image-video iframe').attr('src',urlVideo);
 		jQuery('.sub-title').html(videoTitle);
@@ -98,7 +98,6 @@ function setupVideoTrigger(){
     jQuery('.video-list .video-list-item a').click(function(event){
     	var urlVideo = jQuery(this).attr('href');
     	var videoTitle = jQuery(this).attr('data-title');
-		console.log(this);
         event.preventDefault();
         jQuery('.section-4 .video iframe').attr('src',urlVideo);
     });
