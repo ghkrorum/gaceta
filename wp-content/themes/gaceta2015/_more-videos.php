@@ -3,6 +3,7 @@
         $totalPosts = count($posts);
         $rowCount = 0;
         for ( $i = 0 ; $i < $totalPosts ; $i++ ){
+          $item = $offset + $i;
           $post = $posts[$i];
           setup_postdata($post);
           $img = gaceta2015_get_custom_field_image('imagen_destacada', 'thumb-309x180', 'img-responsive');
@@ -14,9 +15,8 @@
         ?>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="category-posts-item none">
-              <a href="<?php echo $videoUrl; ?>" data-title="<?php echo get_the_title();?>"><?php echo $img;?></a>
-              <iframe src="<?php echo $videoUrl;?>" frameborder="0" allowfullscreen></iframe>
-              <h2 class="category-posts-item-tit gotham-book"><a href="<?php echo $videoUrl; ?>" data-title="<?php echo get_the_title();?>"><?php the_title(); ?></a></h2>
+              <a href="<?php echo $videoUrl; ?>" data-title="<?php echo get_the_title();?>" data-item="<?php echo $item;?>"><?php echo $img;?></a>
+              <h2 class="category-posts-item-tit gotham-book"><a href="<?php echo $videoUrl; ?>" data-title="<?php echo get_the_title();?>" data-item="<?php echo $item;?>"><?php the_title(); ?></a></h2>
             </div>
           </div>
         <?php

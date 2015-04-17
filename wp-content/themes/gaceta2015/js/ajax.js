@@ -26,6 +26,8 @@
 			$('.sub-title').html(videoTitle);
 			var body = $("html, body");
 			body.animate({scrollTop:0}, '100', 'swing', function() {}); 
+			var item = $(this).attr('data-item');
+			evalVideoShareShow(item);
 		});
 	}
 
@@ -38,6 +40,7 @@
 			var category = $(this).attr('data-category');
 			var taxonomy = $(this).attr('data-taxonomy');
 			var s = $(this).attr('data-s');
+			var tag = $(this).attr('data-t');
 
 			jQuery.get(
 			    GacetaAjax.ajaxurl, 
@@ -47,6 +50,7 @@
 			        'category': category,
 			        'taxonomy': taxonomy,
 			        's': s,
+			        'tag': tag,
 			        'offset':   offset
 			    }, 
 			    function(response){
@@ -73,7 +77,9 @@
 			    }, 
 			    function(response){
 			    	$('#videos-list-cont').append(response.content);
+			    	$('.redes-sociales').append(response.share);
 			    	$(This).attr('data-offset', response.offset);
+			    	Shareaholic.init_apps();
 			    	addVideoTrigger();
 			    	displayVideoItems();
 			    	$('.video-items-loaded').removeClass('video-items-loaded');
@@ -97,8 +103,11 @@
 			    }, 
 			    function(response){
 			    	$('#videos-list-cont').html(response.content);
+			    	$('.redes-sociales').html(response.share);
 			    	$('#load-more-videos').attr('data-offset', response.offset);
 			    	$('#load-more-videos').attr('data-category', category);
+			    	Shareaholic.init_apps();
+			    	evalVideoShareShow(0);
 			    	displayVideoItems();
 			    	setupVideoTrigger();
 			    },

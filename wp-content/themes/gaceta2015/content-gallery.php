@@ -3,6 +3,7 @@ the_post();
 $postUrl = $_SERVER['HTTP_REFERER'];
 $galleryUrl = get_permalink();
 $galleryUrl = add_query_arg( array('gallery' => 1)  ,$galleryUrl );
+
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@ $galleryUrl = add_query_arg( array('gallery' => 1)  ,$galleryUrl );
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="">
+    
     <!-- Bootstrap core CSS -->
     <link href="<?php echo THEME_URL;?>/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo THEME_URL;?>/css/bootstrap.min.css" rel="stylesheet">
@@ -61,6 +62,7 @@ $galleryUrl = add_query_arg( array('gallery' => 1)  ,$galleryUrl );
               <?php
               $i = 0;
               $carouselImages = array();
+              $imageArray = array();
               while ( have_rows('galeria') ) : the_row();
                 $image = get_sub_field('imagen');
                 // $imgClass = 'img-responsive';
@@ -71,6 +73,7 @@ $galleryUrl = add_query_arg( array('gallery' => 1)  ,$galleryUrl );
                 }
                 $img = gaceta2015_get_acf_image_thumbnail($image, 'large', $imgClass);
                 $carouselImages[] = $img;
+                $imageArray[] = gaceta2015_get_acf_image($image, 'large');
                 if ($img){
                    $caption = get_field('custom_caption', $image['id']);
                    $description = get_field('custom_description', $image['id']);
@@ -166,9 +169,10 @@ $galleryUrl = add_query_arg( array('gallery' => 1)  ,$galleryUrl );
               <?php
               for ($count = 0 ; $count < $i ; $count++){
                 $item =  $count+1;
-
+                $img = $imageArray[$count];
+                $imageUrl = add_query_arg( array('image' => $item)  ,$galleryUrl );
               ?>
-                <div class='shareaholic-canvas none share-<?php echo $item;?>' data-app-id='15706070' data-app='share_buttons' data-title='<?php the_title();?>' data-link='<?php echo $galleryUrl.'#'.$item;?>' data-summary=''></div>
+                <div class='shareaholic-canvas none share-<?php echo $item;?>' data-app-id='15706070' data-app='share_buttons' data-title='<?php the_title();?>' data-link='<?php echo $imageUrl.'#'.$item;?>' data-summary='' data-image="<?php echo $img;?>"></div>
               <?php
               }
               ?>
@@ -202,5 +206,6 @@ $galleryUrl = add_query_arg( array('gallery' => 1)  ,$galleryUrl );
     <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966745603/?value=0&amp;label=uwFICK201QMQg7z9zAM&amp;guid=ON&amp;script=0"/>
     </div>
     </noscript>  
+    <?php echo $currentUrl;?>
   </body>
 </html>

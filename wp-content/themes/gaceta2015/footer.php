@@ -187,7 +187,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bottom-center gotham-book">
             <div class="uparrow"><a href=""><img src="<?php echo THEME_URL;?>/img/img_uparrow.png"/></a></div>
-            <!--<a href=""><span class="gotham-bold">AVISOS IRRESISTIBLES:</span> OFERTAS Y PROMOCIONES VIGENTES</a>-->
+            <a href=""><span class="gotham-bold">AVISOS IRRESISTIBLES:</span> OFERTAS Y PROMOCIONES VIGENTES</a>
           </div>
         </div>  
       </div>

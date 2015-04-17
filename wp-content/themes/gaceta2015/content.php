@@ -186,10 +186,15 @@ $term = gaceta2015_get_post_term( $post->ID );
                   $tags = gaceta2015_get_terms_array($post->ID, array(MARCAS_TAXONOMY, 'post_tag'));
                   $terms = $marcas + $tags;
                   if (!empty($terms)){
+                    $tags = array();
+                    foreach ($terms as $key => $term){
+                       $tagLInk = get_tag_link($key);
+                       $tags[] = '<a href="'.$tagLInk.'">'.$term.'</a>';
+                    }
                   ?>
                   <span class="sentinel-book italic title">En este artículo:</span> 
                   <?php
-                    echo implode(', ', $terms);
+                    echo implode(', ', $tags);
                   }
                   ?>
                 </div>

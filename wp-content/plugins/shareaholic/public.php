@@ -64,6 +64,7 @@ class ShareaholicPublic {
         'shareaholic_url' => Shareaholic::URL,
         'api_key' => ShareaholicUtilities::get_option('api_key'),
         'page_config' => ShareaholicPublicJS::get_page_config(),
+        'base_settings' => ShareaholicPublicJS::get_base_settings()
       ));
     }
   }
@@ -217,7 +218,9 @@ class ShareaholicPublic {
       // Article Author Name      
       if ($post->post_author) {
         $article_author_data = get_userdata($post->post_author);
-        $article_author_name = $article_author_data->display_name;
+        if ($article_author_data) {
+          $article_author_name = $article_author_data->display_name;
+        }
       }
       if (!empty($article_author_name)) {
         echo "<meta name='shareaholic:article_author_name' content='" . $article_author_name . "' />\n";
@@ -592,7 +595,7 @@ class ShareaholicPublic {
     
     // Input Params
     $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : "any";
-    $n = isset($_GET['n']) ? $_GET['n'] : -1;
+    $n = isset($_GET['n']) ? intval($_GET['n']) : -1;
     $format = isset($_GET['format']) ? $_GET['format'] : "json";
     
     $permalink_list = array();
@@ -621,12 +624,12 @@ class ShareaholicPublic {
         }
       }
       
-      if ($format == "text"){
+      if ($format === "text"){
         header('Content-Type: text/plain; charset=utf-8');
         foreach($permalink_list as $link) {
           echo $link. "\r\n";
         }
-      } elseif ($format == "json"){
+      } elseif ($format === "json"){
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode($permalink_list);
       }
@@ -768,7 +771,7 @@ class ShareaholicPublic {
     // Input Params
     $permalink = isset($_GET['permalink']) ? $_GET['permalink'] : NULL;
     $match = isset($_GET['match']) ? $_GET['match'] : "random"; // match method
-    $n = isset($_GET['n']) ? $_GET['n'] : 10; // number of related permalinks to return
+    $n = isset($_GET['n']) ? intval($_GET['n']) : 10; // number of related permalinks to return
     
     $related_permalink_list = array();
     

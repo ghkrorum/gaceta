@@ -120,6 +120,53 @@ add_filter( 'tiny_mce_before_init', 'gaceta2015_mce_before_init' );
 
 
 /**
+ * Change og:image tag value for selected image in galleries
+ */
+function gaceta2015_custom_seo_content($content)
+{
+	global $post;
+	if( have_rows('galeria') && !empty($_GET['gallery']) ){
+	  $rows = get_field('galeria');
+	  $item = (isset($_GET['image']))?$_GET['image'] - 1:0;
+	  if (!empty($rows[$item])){
+	  	$row = $rows[$item];
+		$imageRow = $row['imagen'];
+		$image = gaceta2015_get_acf_image_thumbnail($imageRow, 'large');
+		$content .= $image;
+	  }
+	  
+	}
+    return $content;
+}
+add_filter('wpseo_pre_analysis_post_content', 'gaceta2015_custom_seo_content');
+
+
+/**
+ * Change og:image tag value for selected image in galleries
+ */
+function gaceta2015_og_image($image) {
+   	global $post;
+	if( have_rows('galeria') && !empty($_GET['gallery']) ){
+	  $rows = get_field('galeria');
+	  $item = (isset($_GET['image']))?$_GET['image'] - 1:0;
+	  if (!empty($rows[$item])){
+	  	$row = $rows[$item];
+		$imageRow = $row['imagen'];
+		$image = gaceta2015_get_acf_image($imageRow, 'large');
+	  }
+	  
+	}
+   return $image;
+}
+add_filter('wpseo_opengraph_image', 'gaceta2015_og_image');
+
+
+// Disable og tags from Facebook Comments by Fat Panda
+if ( !class_exists('SharePress') ) {
+class SharePress {};
+}
+
+/**
  * Enqueue scripts and styles
  */
 function gaceta2015_scripts() {
@@ -153,8 +200,13 @@ function gaceta2015_ajax_load_more_posts() {
 	$offset = (isset($_GET['offset']))?$_GET['offset']:0;
 	$category = (isset($_GET['category']))?$_GET['category']:'';
 	$taxonomy = (isset($_GET['taxonomy']))?$_GET['taxonomy']:'';
+	$tag = (isset($_GET['tag']))?$_GET['tag']:'';
 	$s = (isset($_GET['s']))?$_GET['s']:'';
-	if (!empty($category)){
+
+	if (!empty($tag)){
+		$posts = gaceta2015_get_posts_by_tag($tag, $numberposts = 4, $offset);
+	}
+	elseif (!empty($category)){
 		if (!empty($taxonomy)){
 			$posts = gaceta2015_get_posts_by_taxonomy($category, $taxonomy, 4, $offset);
 		}
@@ -237,9 +289,16 @@ function gaceta2015_ajax_load_more_videos(){
 	ob_start();
     include '_more-videos.php';
     $html =  ob_get_clean();
+
+    ob_start();
+    include '_more-videos-share.php';
+    $shareHtml =  ob_get_clean();
+
+
     $offset = $offset + $totaPosts;
     echo json_encode(array(
     	'content' => $html,
+    	'share' => $shareHtml,
     	'offset' => $offset,
     ));
     // echo $html;
@@ -313,6 +372,24 @@ function gaceta2015_get_acf_image_thumbnail($imageObject, $size = '', $class='')
 		}
 	}
 	return '';
+}
+
+function gaceta2015_get_acf_image($imageObject, $size = ''){
+	if (!empty($imageObject)){
+		$thumb = $imageObject['sizes'][ $size ];
+		return $thumb;
+	}
+	return '';
+}
+
+function gaceta2015_get_posts_by_tag($tag, $numberposts = 1, $offset = 0){
+	$query_args = array( 
+		'tag' => $tag,
+		'posts_per_page' => $numberposts,
+		'offset' => $offset
+	);
+	$query = new WP_Query( $query_args );
+	return $query->posts;
 }
 
 function gaceta2015_get_posts_by_search_term($s, $numberposts = 1, $offset = 0){
@@ -1282,6 +1359,7 @@ if ( ! function_exists( 'the_excerpt_max_charlength' ) ) :
 	}
 	}
 endif;
+
 
 /* Custom shortcodes currently managed by shortcode ultimate plugin  */
 // function gaceta2015_shortcode_highlight( $atts, $content = "" ) {
