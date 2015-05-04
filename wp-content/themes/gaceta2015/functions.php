@@ -3,6 +3,7 @@ define("THEME_URL", get_stylesheet_directory_uri());
 define("GACETA_TAXONOMY", 'secciones');
 define("MARCAS_TAXONOMY", 'marcas');
 define("GACETA_MAIN_CATEGORIES", serialize (array ( 2, 7, 6, 3, 8, 35, 4)));
+define("GACETA_CATEGORY_AVISOS", 46);
 
 define("GACETA_ZONA_1", 'zona1');
 define("GACETA_ZONA_2", 'zona2');

@@ -270,6 +270,11 @@
               ?>
             </div>
             <div class="content-button-video">
+              <?php
+
+              $idObj = get_term_by( 'slug', 'avisos', GACETA_TAXONOMY);
+              $termId = $idObj->term_id;
+              ?>
               <a href="<?php echo get_term_link( $termId, GACETA_TAXONOMY );?>" class="more-btn gotham-bold">
                 <span class="more-btn-wrap">
                   Más videos

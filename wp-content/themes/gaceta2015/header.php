@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>/css/style.css">
     <!--script type="text/javascript" src="<?php echo THEME_URL;?>/js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="<?php echo THEME_URL;?>/js/jquery-migrate-1.2.1.min.js"></script-->
-       <link rel="stylesheet" type="text/css" href="<?php echo THEME_URL;?>/css/tango/skin.css" />
       
    
     <?php

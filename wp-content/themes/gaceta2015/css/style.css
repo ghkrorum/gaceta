@@ -1531,6 +1531,7 @@ a:link{
 }
 /*modal*/
 .modalmask {
+	display: none;
     position:fixed;
     top: 3%;
     right: 0;
@@ -1538,15 +1539,28 @@ a:link{
     left: 0;
     background: rgba(0,0,0,0.8);
     z-index: 999;
-    opacity:0;
+    
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
-    /*pointer-events: none;*/
+    
 }
 .modalmask:target {
     opacity:1;
-    /*pointer-events: auto;*/
+    pointer-events: auto;
+}
+.modalbox-cont-wrap{
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.modalbox-wrap{
+	width: 100%;
+	height: auto;
+	float: left;
 }
 .modalbox{
     width: 50%;
