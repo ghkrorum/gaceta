@@ -3016,3 +3016,43 @@ div.galSlider{
 	 	width: 100%;
 	 }
 }
+
+
+/* Pagination aviso*/
+.pagination-aviso a:hover ,.pagination-aviso .more-btn-wrap.active{
+	color: #ffc423;
+}
+
+.wp-pagenavi a.page{
+	border: 1px solid #b5b5b5;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-family: 'Gotham A', 'Gotham B';
+	font-weight: 700;
+	width: 40px;
+	height: 40px;
+	margin-right: 14px;
+	display: inline-block;
+	padding: 10px;
+	color: #b5b5b5;
+}
+
+.wp-pagenavi a.page:hover{
+	color: #ffc423;
+}
+
+.wp-pagenavi .current{
+	color: #ffc423;
+	display: inline-block;
+	border: 1px solid #b5b5b5;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-family: 'Gotham A', 'Gotham B';
+	font-weight: 700;
+	width: 40px;
+	height: 40px;
+	margin-right: 14px;
+	display: inline-block;
+	padding: 10px;
+}
+

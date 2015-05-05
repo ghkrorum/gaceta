@@ -450,9 +450,10 @@ function setupVideoTrigger(){
 
 
 		//modal
-		$('.section-avisos .more-btn').click(function(event){
+		$('.section-avisos .content-image').click(function(event){
 			event.preventDefault();
-			$('.modalmask').css('display', 'block');
+			var id = $(this).attr('id');
+			$('#modal'+id).css('display', 'block');
 		});
 		$('.modalmask').click(function(){
 			$('.modalmask').css('display', 'none');

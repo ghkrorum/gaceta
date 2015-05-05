@@ -1,0 +1,29 @@
+/*
+Default style for WP-PageNavi plugin
+
+http://wordpress.org/extend/plugins/wp-pagenavi/
+*/
+
+
+
+
+.pagination-aviso .page{
+	width: 40px;
+	height: 40px;
+    margin-right: 14px;
+    color: #b5b5b5;
+    
+}
+.pagination-aviso a:hover ,.pagination-aviso .more-btn-wrap.active{
+	color: #ffc423;
+}
+
+.wp-pagenavi a.page{
+	margin: 0 auto;
+	border: 1px solid #b5b5b5;
+	color: #ffc423;
+	display: inline-block;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
