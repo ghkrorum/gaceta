@@ -79,7 +79,7 @@
 			    	$('#videos-list-cont').append(response.content);
 			    	$('.redes-sociales').append(response.share);
 			    	$(This).attr('data-offset', response.offset);
-			    	Shareaholic.init_apps();
+			    	Shareaholic.init();
 			    	addVideoTrigger();
 			    	displayVideoItems();
 			    	$('.video-items-loaded').removeClass('video-items-loaded');
@@ -106,7 +106,7 @@
 			    	$('.redes-sociales').html(response.share);
 			    	$('#load-more-videos').attr('data-offset', response.offset);
 			    	$('#load-more-videos').attr('data-category', category);
-			    	Shareaholic.init_apps();
+			    	Shareaholic.init();
 			    	evalVideoShareShow(0);
 			    	displayVideoItems();
 			    	setupVideoTrigger();

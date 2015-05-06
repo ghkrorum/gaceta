@@ -187,10 +187,11 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bottom-center gotham-book">
             <div class="uparrow"><a href=""><img src="<?php echo THEME_URL;?>/img/img_uparrow.png"/></a></div>
-            <a href=""><span class="gotham-bold">AVISOS IRRESISTIBLES:</span> OFERTAS Y PROMOCIONES VIGENTES</a>
+            <a href="" id="notices-trigger"><span class="gotham-bold">AVISOS IRRESISTIBLES:</span> OFERTAS Y PROMOCIONES VIGENTES</a>
           </div>
         </div>  
       </div>
+      <iframe src="http://www.w3schools.com" id="notices-iframe"></iframe>
     </div>
     <script src="<?php echo THEME_URL;?>/js/bootstrap.min.js"></script>
     <?php wp_footer();?>
