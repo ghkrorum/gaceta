@@ -15,6 +15,7 @@ body{
 	font-family: "Arial",sans-serif;
     font-size: 18px;
     font-weight: 200;
+    position: relative;
 }
 a:link{
 	text-decoration: none;
@@ -68,6 +69,12 @@ a:link{
 	width: 100%;
 	background-color: #fff;
 	z-index: 1600;
+}
+.header .container{
+	background: #ffffff;
+}
+.header.full{
+	height: 156px;
 }
 .header-logo{
 	margin: 37px 0 0;
@@ -152,7 +159,29 @@ a:link{
 .search input:focus {
  	background: #fff; color: #999;
 }*/
-
+.header-fixed{
+	height: 156px;
+	float: left;
+}
+.header-fixed .container{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding-bottom: 10px;
+}
+.header-fixed .header-logo{
+	width: 152px;
+	margin: 10px 0 0 0;
+}
+.header-fixed .redes-sociales-header{
+	display: none;
+}
+.header-fixed .header-search-main{
+	display: none;
+}
+.header-fixed .header-search-fixed{
+	display: block;
+}
 .no-results{
 	width: 100%;
 	text-align: left;
@@ -792,15 +821,15 @@ a:link{
 .footer-notices{
 	width: 100%;
     /*height: 34px;*/
-    height: 0;
+    height: 34px;
     /*padding: 10px;*/
     font-size: 14px;
 	text-align: center;
-	/*background-color: #ffc423;*/
-	background-color: transparent;
+	background-color: #ffc423;
+	line-height: 34px;
 	color: #000000;
-	/*box-shadow: 2.65px -4.24px 5px 0px rgba(0, 0, 0, 0.15);*/
-	position: fixed;
+	box-shadow: 2.65px -4.24px 5px 0px rgba(0, 0, 0, 0.15);
+	position: absolute;
 	bottom: 0px;
 	z-index: 100; 
 }
@@ -3055,4 +3084,21 @@ div.galSlider{
 	display: inline-block;
 	padding: 10px;
 }
-
+.belt-avisos{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 35px;
+	background: #ffc423;
+	text-align: center;
+	z-index: 101;
+	line-height: 35px;
+	font-size: 14px;
+}
+#notices-iframe{
+	display: none;
+	position: absolute;
+}
+.shareaholic-canvas.none{
+	display: none !important;
+}

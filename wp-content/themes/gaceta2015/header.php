@@ -136,7 +136,7 @@
               }
               ?>
             </div>
-            <div class="header-search gotham-book screen-hidden">
+            <div class="header-search gotham-book screen-hidden header-search-main">
               <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' )); ?>">
                 <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="SearchForm" class="gotham-book" placeholder="Buscar"/>
                 <span class="line-search">|</span><img class="search" src="<?php echo THEME_URL;?>/img/btn_search.png">
@@ -183,7 +183,7 @@
               wp_nav_menu( $menuArgs ); ?>
               
             <!-- </div>   -->
-            <div class="header-search gotham-book mobil-hidden">
+            <div class="header-search gotham-book mobil-hidden header-search-fixed">
               <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' )); ?>">
                 <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="SearchForm" class="gotham-book" placeholder="Buscar"/>
                 <span class="line-search">|</span><img class="search" src="<?php echo THEME_URL;?>/img/btn_search.png">

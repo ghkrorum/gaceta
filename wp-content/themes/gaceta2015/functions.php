@@ -171,8 +171,6 @@ class SharePress {};
  * Enqueue scripts and styles
  */
 function gaceta2015_scripts() {
-
-	
 	// if (is_single()){
 		wp_enqueue_script( 'ios6fix', get_template_directory_uri() . '/js/ios6fix.js', array(), '2.1.6', false );
 
@@ -189,6 +187,7 @@ function gaceta2015_scripts() {
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		// 'security' => wp_create_nonce( 'gaceta-valid-string' )
 	));
+	wp_enqueue_script( 'notices', get_template_directory_uri() . '/js/notices.js', array(), '0.0.1', false );
 	// wp_enqueue_script( 'gaceta-ajax' );
 }
 add_action( 'wp_enqueue_scripts', 'gaceta2015_scripts' );
